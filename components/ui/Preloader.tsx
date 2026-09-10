@@ -46,7 +46,7 @@ export function Preloader() {
   return (
     <AnimatePresence mode="wait">
       {isLoading && (
-        <div className="fixed inset-0 z-[99999] pointer-events-none select-none flex flex-col justify-between overflow-hidden">
+        <div className="fixed inset-0 z-99999 pointer-events-none select-none flex flex-col justify-between overflow-hidden">
           {/* Top Shutter Half (Slides Up on exit) */}
           <motion.div
             initial={{ y: "0%" }}
