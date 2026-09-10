@@ -4,7 +4,6 @@ import { About } from "@/components/sections/About";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { FeaturedProjects } from "@/components/sections/FeaturedProjects";
 import { ExperienceTimeline } from "@/components/sections/ExperienceTimeline";
-import { ServicesSection } from "@/components/sections/ServicesSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function HomePage() {
@@ -16,7 +15,6 @@ export default function HomePage() {
       <SkillsSection />
       <FeaturedProjects />
       <ExperienceTimeline />
-      <ServicesSection />
       <ContactSection />
     </div>
   );

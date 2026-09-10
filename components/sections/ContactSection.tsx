@@ -87,7 +87,7 @@ export function ContactSection() {
           title="Let's build something"
           titleAccent="great."
           watermark="07"
-          description="Have an ambitious web project, need a specialized Salla or Shopify theme, or looking for a talented Frontend Developer? Let's talk."
+          description="Have an ambitious web application, need high-end React & Next.js engineering, or looking for an experienced Frontend Developer? Let's talk."
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start max-w-6xl mx-auto">
@@ -370,17 +370,14 @@ export function ContactSection() {
                         <option value="Next.js Web Application">
                           Next.js Web Application / Frontend
                         </option>
-                        <option value="Salla E-Commerce Storefront (Twig)">
-                          Salla E-Commerce Storefront (Twig)
+                        <option value="React SPA & Interactive Dashboard">
+                          React SPA &amp; Interactive Dashboard
                         </option>
-                        <option value="Shopify Storefront (Liquid)">
-                          Shopify Storefront (Liquid)
+                        <option value="UI/UX Engineering & Design Systems">
+                          UI/UX Engineering &amp; Design Systems
                         </option>
-                        <option value="Zid E-Commerce Storefront">
-                          Zid E-Commerce Storefront
-                        </option>
-                        <option value="Interactive UI/UX & Motion Design">
-                          Interactive UI/UX & Motion Design
+                        <option value="Performance & Core Web Vitals Optimization">
+                          Performance &amp; Core Web Vitals Optimization
                         </option>
                         <option value="Frontend Developer Opportunity">
                           Frontend Developer Opportunity

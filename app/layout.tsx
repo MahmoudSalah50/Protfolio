@@ -1,24 +1,39 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Plus_Jakarta_Sans, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { BottomNav } from "@/components/layout/BottomNav";
 import { ScrollProgress } from "@/components/layout/ScrollProgress";
 import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 import { InteractiveCursor } from "@/components/ui/InteractiveCursor";
+import { ThemeProvider } from "@/components/providers/ThemeContext";
+import { ParticleCanvas } from "@/components/ui/ParticleCanvas";
+import { CommandPalette } from "@/components/ui/CommandPalette";
+import { FloatingSocialDock } from "@/components/ui/FloatingSocialDock";
+import { Preloader } from "@/components/ui/Preloader";
 import { profileData } from "@/data/profile";
 import React from "react";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const plusJakarta = Plus_Jakarta_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600", "700", "800"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const outfit = Outfit({
+  variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const viewport: Viewport = {
@@ -28,25 +43,23 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "Mahmoud Salah | Frontend Developer — React, Next.js & E-Commerce",
+  title: "Mahmoud Salah | Frontend Developer — Next.js, React & TypeScript",
   description:
-    "Production-grade portfolio of Mahmoud Salah, Frontend Developer. Specializing in Next.js App Router, React 19, TypeScript, dynamic UI/UX animations, and specialized e-commerce storefronts across Salla, Shopify, and Zid.",
+    "Production-grade portfolio of Mahmoud Salah, Frontend Developer. Specializing in Next.js App Router, React 19, TypeScript, dynamic UI/UX animations, and scalable web applications.",
   keywords: [
     "Mahmoud Salah",
     "Frontend Developer",
     "Next.js Developer",
     "React Developer",
     "TypeScript",
-    "Salla Developer",
-    "Salla Theme Development",
-    "Twig",
-    "Shopify Developer",
-    "Shopify Liquid",
-    "Zid Developer",
     "Frontend Architecture",
+    "Tailwind CSS",
     "Framer Motion",
+    "Zustand",
+    "TanStack Query",
+    "Web Performance",
+    "Core Web Vitals",
     "Mansoura Egypt",
-    "Luxe Storefront",
   ],
   authors: [{ name: "Mahmoud Salah", url: "https://github.com/MahmoudSalah50" }],
   creator: "Mahmoud Salah",
@@ -56,14 +69,14 @@ export const metadata: Metadata = {
     url: "https://mahmoud-salah.vercel.app",
     title: "Mahmoud Salah | Frontend Developer",
     description:
-      "Modern, responsive web experiences with React, Next.js, TypeScript, and clean frontend architecture — with deep experience in Salla, Shopify, and Zid e-commerce platforms.",
+      "Modern, responsive web applications with React, Next.js, TypeScript, smooth animations, and clean frontend architecture.",
     siteName: "Mahmoud Salah Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Mahmoud Salah | Frontend Developer",
     description:
-      "Modern web applications, interactive animations, and specialized Salla, Shopify, and Zid e-commerce engineering.",
+      "Modern web applications, interactive animations, and production-grade frontend engineering.",
     creator: "@mahmoudsalahh19",
   },
   robots: {
@@ -107,13 +120,10 @@ export default function RootLayout({
       "React.js",
       "Next.js",
       "TypeScript",
-      "Salla",
-      "Twig",
-      "Shopify",
-      "Liquid",
       "Tailwind CSS",
       "Zustand",
       "TanStack Query",
+      "Framer Motion",
       "Frontend Architecture",
       "Core Web Vitals",
     ],
@@ -122,7 +132,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} scroll-smooth dark`}
+      className={`${plusJakarta.variable} ${outfit.variable} ${jetbrainsMono.variable} scroll-smooth dark`}
       suppressHydrationWarning
     >
       <head>
@@ -132,13 +142,20 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col bg-[#050505] text-zinc-100 antialiased selection:bg-white selection:text-black">
-        <SmoothScrollProvider>
-          <InteractiveCursor />
-          <ScrollProgress />
-          <Navbar />
-          <main className="flex-1 w-full">{children}</main>
-          <Footer />
-        </SmoothScrollProvider>
+        <ThemeProvider>
+          <Preloader />
+          <SmoothScrollProvider>
+            <ParticleCanvas />
+            <InteractiveCursor />
+            <ScrollProgress />
+            <Navbar />
+            <FloatingSocialDock />
+            <main className="flex-1 w-full relative z-10">{children}</main>
+            <BottomNav />
+            <Footer />
+            <CommandPalette />
+          </SmoothScrollProvider>
+        </ThemeProvider>
       </body>
     </html>
   );

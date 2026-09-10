@@ -22,8 +22,8 @@ export type ProjectCategory =
   | "Next.js"
   | "React"
   | "E-commerce"
-  | "Salla"
-  | "Shopify";
+  | "Dashboard"
+  | "Design System";
 
 export interface ProjectCaseStudy {
   problem: string;
@@ -43,7 +43,7 @@ export interface Project {
   title: string;
   slug: string;
   tagline: string;
-  category: "E-commerce" | "Next.js" | "React" | "Salla" | "Shopify";
+  category: "E-commerce" | "Next.js" | "React" | "Dashboard" | "Design System";
   categories: ProjectCategory[];
   description: string;
   technologies: string[];

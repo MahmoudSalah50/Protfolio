@@ -9,7 +9,7 @@ export const projectsData: Project[] = [
     category: "E-commerce",
     categories: ["All", "E-commerce", "Next.js", "React"],
     description:
-      "A flagship modern e-commerce storefront engineered for luxury retail. Features instantaneous product filtering, fluid variant selectors, reactive slide-out cart drawer, and high-conversion checkout flows.",
+      "A flagship modern e-commerce web application engineered for luxury retail. Features instantaneous product filtering, fluid variant selectors, optimistic cart drawer, and high-conversion checkout flows.",
     technologies: [
       "Next.js App Router",
       "React 19",
@@ -31,7 +31,7 @@ export const projectsData: Project[] = [
     ],
     caseStudy: {
       problem:
-        "Traditional e-commerce templates suffer from heavy client-side JavaScript bundles, slow initial page loads, and layout shifts during image loading, causing high bounce rates on mobile networks.",
+        "Traditional e-commerce web applications suffer from heavy client-side JavaScript bundles, slow initial page loads, and layout shifts during image loading, causing high bounce rates on mobile networks.",
       goal:
         "Architect an ultra-responsive e-commerce experience that delivers instant catalog transitions, zero layout shift, and smooth micro-interactions that elevate brand prestige.",
       architecture: [
@@ -60,127 +60,16 @@ export const projectsData: Project[] = [
     },
   },
   {
-    id: "salla-twig-theme",
-    title: "Salla Enterprise Twig Theme Engine",
-    slug: "salla-enterprise-twig-theme",
-    tagline: "Custom bespoke Salla theme built on Twig, Twilight components, and localized RTL Arabic architecture.",
-    category: "Salla",
-    categories: ["All", "E-commerce", "Salla"],
-    description:
-      "A complete bespoke Salla v2 theme engineered for high-volume Middle Eastern merchants. Features native RTL typography, custom Twilight UI overrides, dynamic product add-ons, and sub-second TTFB.",
-    technologies: [
-      "Salla Theme Engine",
-      "Twig",
-      "Salla CLI",
-      "JavaScript (ES6+)",
-      "Sass / SCSS",
-      "PostCSS",
-      "Twilight UI",
-    ],
-    featured: true,
-    githubUrl: "https://github.com/MahmoudSalah50",
-    metrics: [
-      { label: "Mobile Speed Index", value: "1.1s" },
-      { label: "RTL Support", value: "100% Native" },
-      { label: "Bundle Reduction", value: "-48%" },
-      { label: "Core Web Vitals", value: "Pass" },
-    ],
-    caseStudy: {
-      problem:
-        "Standard marketplace Salla themes were bloated with redundant third-party scripts, lacked high-end micro-interactions, and had layout instability on Arabic right-to-left viewports.",
-      goal:
-        "Develop a lightweight, high-performance custom Salla theme tailored for GCC consumer habits with native Arabic typography, custom product option trees, and rapid checkout access.",
-      architecture: [
-        "Modular Twig template inheritance with atomic partials for headers, cards, and drawers",
-        "Salla CLI local development environment with hot-reload and sandbox store simulation",
-        "Twilight Web Component lifecycle management with native event dispatchers",
-        "Bi-directional CSS styling using modern CSS logical properties (`margin-inline-start`, etc.)",
-      ],
-      challenges: [
-        "Customizing Salla's default checkout and cart hooks without breaking merchant back-office updates.",
-        "Ensuring crisp typography and alignment across both Arabic (Cairo/Tajawal) and English typography.",
-      ],
-      solution: [
-        "Created an event-driven JavaScript bridge connecting Salla hooks with custom cart notification drawers.",
-        "Refactored styling into a modular SCSS pipeline with strict BEM naming and custom variable scopes.",
-        "Optimized webfont loading using `font-display: swap` and localized subset preconnects.",
-      ],
-      performanceGains: [
-        { label: "First Contentful Paint", value: "0.9s" },
-        { label: "Page Weight", value: "Reduced from 2.4MB to 680KB" },
-        { label: "Checkout Drop-off", value: "Reduced by 18%" },
-        { label: "Mobile Conversion", value: "+24% Uplift" },
-      ],
-      architectureHighlights:
-        "Clean Twig macro ecosystem isolating complex pricing formulas and inventory countdown timers into reusable server-rendered fragments.",
-    },
-  },
-  {
-    id: "shopify-liquid-store",
-    title: "Shopify Liquid High-Conversion Storefront",
-    slug: "shopify-liquid-storefront",
-    tagline: "Custom Shopify theme architecture with Section Rendering API, Ajax cart drawer, and dynamic metafields.",
-    category: "Shopify",
-    categories: ["All", "E-commerce", "Shopify"],
-    description:
-      "Engineered a scalable Shopify storefront utilizing modern Liquid architecture, theme app extensions, dynamic cart upsells, and custom section settings for merchant self-service.",
-    technologies: [
-      "Shopify Liquid",
-      "JavaScript",
-      "Tailwind CSS",
-      "Ajax Cart API",
-      "Section Rendering API",
-      "Metafields",
-    ],
-    featured: true,
-    githubUrl: "https://github.com/MahmoudSalah50",
-    metrics: [
-      { label: "Add-to-Cart Speed", value: "Instant" },
-      { label: "Average Order Value", value: "+19%" },
-      { label: "Desktop PageSpeed", value: "98/100" },
-      { label: "Zero Jitter", value: "100%" },
-    ],
-    caseStudy: {
-      problem:
-        "Client needed high-end visual storytelling with customized product landing sections while preserving non-technical merchant editing in the Shopify Theme Customizer.",
-      goal:
-        "Build a custom Shopify theme featuring customizable Liquid sections, an instant AJAX cart drawer with intelligent upsell recommendations, and zero layout shift.",
-      architecture: [
-        "Shopify Section Rendering API for seamless dynamic updates without whole-page refreshes",
-        "Native JavaScript web components for interactive product swatch and size guide modals",
-        "Shopify Metafields integration to drive dynamic specification tables and badge overlays",
-        "Asset minification and critical path inline CSS generation",
-      ],
-      challenges: [
-        "Synchronizing multiple variant selections across complex bundle options without page reloads.",
-        "Preventing app script pollution from degrading Shopify Core Web Vitals.",
-      ],
-      solution: [
-        "Built a stateful variant manager listening to form change events and fetching partial section HTML.",
-        "Implemented lazy script injection for analytics and non-essential third-party widgets.",
-        "Utilized Shopify CDN automatic WebP/AVIF transformations with precise srcset rules.",
-      ],
-      performanceGains: [
-        { label: "Time to Interactive", value: "1.4s" },
-        { label: "Cart Drawer Load", value: "< 50ms" },
-        { label: "Mobile Core Web Vitals", value: "Green across all metrics" },
-        { label: "Bundle Size", value: "< 85KB JS total" },
-      ],
-      architectureHighlights:
-        "Modular section schemas providing complete customization freedom to marketing teams while enforcing strict layout guards against design degradation.",
-    },
-  },
-  {
     id: "saas-analytics-dashboard",
     title: "Next.js SaaS Analytics & Executive Dashboard",
     slug: "saas-analytics-dashboard",
     tagline: "High-density enterprise analytics portal with TanStack Query, Recharts data visualization, and Zustand.",
-    category: "Next.js",
-    categories: ["All", "Next.js", "React"],
+    category: "Dashboard",
+    categories: ["All", "Next.js", "React", "Dashboard"],
     description:
-      "A real-time metrics platform for cross-channel retail analytics. Delivers interactive Recharts visualizations, dynamic date range filtering, responsive data tables, and CSV export capabilities.",
+      "A real-time metrics platform for business telemetry. Delivers interactive visualizations, dynamic date range filtering, virtualized high-density data tables, and CSV export capabilities.",
     technologies: [
-      "Next.js 15 App Router",
+      "Next.js App Router",
       "React 19",
       "TypeScript",
       "TanStack Query",
@@ -191,6 +80,7 @@ export const projectsData: Project[] = [
     ],
     featured: true,
     githubUrl: "https://github.com/MahmoudSalah50",
+    liveUrl: "https://luxe-one-bay.vercel.app/",
     metrics: [
       { label: "Data Rendering", value: "60 FPS" },
       { label: "Initial Hydration", value: "< 120ms" },
@@ -199,12 +89,12 @@ export const projectsData: Project[] = [
     ],
     caseStudy: {
       problem:
-        "Enterprise managers were overwhelmed by slow dashboard re-renders and unorganized telemetry across multiple sales channels and inventory warehouses.",
+        "Enterprise managers were overwhelmed by slow dashboard re-renders and unorganized telemetry across multiple data streams and operational warehouses.",
       goal:
         "Design and construct an executive command dashboard capable of rendering dense data sets smoothly with instant filtering and interactive trend analysis.",
       architecture: [
         "TanStack Query server-state management with stale-while-revalidate caching and optimistic refetch",
-        "Virtualization for high-density historical sales records",
+        "Virtualization for high-density historical telemetry records",
         "Reusable chart design system wrapping Recharts with custom tooltips and dark-mode gradients",
         "Zod schema validation on incoming API responses to guarantee UI runtime integrity",
       ],
@@ -228,12 +118,67 @@ export const projectsData: Project[] = [
     },
   },
   {
+    id: "motion-kanban-workspace",
+    title: "Interactive Kanban & Task Management Workspace",
+    slug: "interactive-kanban-workspace",
+    tagline: "Fluid drag-and-drop productivity suite engineered with Framer Motion, optimistic mutations, and local persistence.",
+    category: "React",
+    categories: ["All", "React", "Next.js"],
+    description:
+      "A fast, modern project management application featuring bi-directional drag-and-drop column boards, rich markdown task descriptions, color-coded priority labels, and instant undo/redo actions.",
+    technologies: [
+      "React 19",
+      "Next.js",
+      "TypeScript",
+      "Framer Motion",
+      "Tailwind CSS",
+      "Zustand",
+      "Lucide Icons",
+    ],
+    featured: true,
+    githubUrl: "https://github.com/MahmoudSalah50",
+    liveUrl: "https://luxe-one-bay.vercel.app/",
+    metrics: [
+      { label: "Drag Latency", value: "< 5ms" },
+      { label: "Physics Frame Rate", value: "60 FPS" },
+      { label: "Bundle Size", value: "< 24kB" },
+      { label: "State Sync", value: "Instant" },
+    ],
+    caseStudy: {
+      problem:
+        "Standard web-based task managers often feel clunky, with sluggish drag physics, jarring layout reflows, and cumbersome modal dialogs.",
+      goal:
+        "Build a lightweight, buttery-smooth workspace with tactile spring physics, keyboard accessibility, and zero input lag.",
+      architecture: [
+        "Framer Motion layout animations for smooth reordering without DOM node thrashing",
+        "Optimistic local state mutations with immediate visual feedback",
+        "Custom event listeners for accessible keyboard navigation across columns",
+      ],
+      challenges: [
+        "Handling complex cross-column dragging with collision detection.",
+        "Preserving responsive column wrapping on tablet and mobile viewports.",
+      ],
+      solution: [
+        "Used Framer Motion layoutId and spring physics to animate items into their new slots gracefully.",
+        "Built a modular state slice in Zustand handling column reordering and card mutations.",
+      ],
+      performanceGains: [
+        { label: "Interaction Latency", value: "Sub-5ms response" },
+        { label: "User Delight", value: "Tactile spring feedback" },
+        { label: "Accessibility", value: "Full keyboard controls" },
+        { label: "Memory Efficiency", value: "Zero leaks" },
+      ],
+      architectureHighlights:
+        "Separation of presentation cards from gesture drag listeners, ensuring 60 FPS animation continuity.",
+    },
+  },
+  {
     id: "design-system-library",
     title: "Accessible Design System & UI Primitive Suite",
     slug: "design-system-library",
     tagline: "Scalable component library engineered with strict TypeScript, WCAG 2.1 AA compliance, and dark mode.",
-    category: "React",
-    categories: ["All", "React", "Next.js"],
+    category: "Design System",
+    categories: ["All", "React", "Next.js", "Design System"],
     description:
       "An enterprise-ready design system powering multi-brand applications. Includes accessible form controls, modals, tabs, dropdowns, and toast notifications with comprehensive keyboard navigation.",
     technologies: [
@@ -244,8 +189,9 @@ export const projectsData: Project[] = [
       "Framer Motion",
       "Lucide Icons",
     ],
-    featured: false,
+    featured: true,
     githubUrl: "https://github.com/MahmoudSalah50",
+    liveUrl: "https://luxe-one-bay.vercel.app/",
     metrics: [
       { label: "Accessibility", value: "WCAG 2.1 AA" },
       { label: "Reusable Components", value: "40+" },
@@ -260,11 +206,11 @@ export const projectsData: Project[] = [
       architecture: [
         "Headless accessibility primitives powered by Radix UI wrapped in custom Tailwind utility tokens",
         "Compound component patterns allowing flexible layouts without prop drilling",
-        "Polymorphic `asChild` support enabling seamless integration with Next.js Link and buttons",
+        "Polymorphic asChild support enabling seamless integration with Next.js Link and buttons",
       ],
       challenges: [
         "Handling complex focus traps and aria-expanded attributes on nested mobile navigation drawers.",
-        "Balancing expressive micro-animations with `prefers-reduced-motion` compliance.",
+        "Balancing expressive micro-animations with prefers-reduced-motion compliance.",
       ],
       solution: [
         "Integrated Radix UI Dialog and Dropdown primitives with custom CSS animation keys.",

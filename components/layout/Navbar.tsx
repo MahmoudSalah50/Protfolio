@@ -2,31 +2,41 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+import mahmoudImg from "@/public/mahmoud.jpg";
 import { profileData } from "@/data/profile";
 import { useScrollSpy } from "@/hooks/useScrollSpy";
+import { AudioToggle } from "@/components/ui/AudioToggle";
+import { useThemeContext } from "@/components/providers/ThemeContext";
 import {
   Menu,
   X,
   Download,
-  Terminal,
   ArrowUpRight,
   Sparkles,
+  Phone,
+  MessageCircle,
+  Clock,
+  MapPin,
 } from "lucide-react";
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/components/ui/SocialIcons";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
-  { id: "contact", label: "Contact" },
+  { id: "about", label: "About", number: "01" },
+  { id: "skills", label: "Skills", number: "02" },
+  { id: "projects", label: "Projects", number: "03" },
+  { id: "experience", label: "Experience", number: "04" },
+  { id: "contact", label: "Contact", number: "05" },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const activeSection = useScrollSpy(navLinks.map((l) => l.id), 120);
+  const { playClick, playSuccess, playWhoosh } = useThemeContext();
 
   const handleNavClick = (id: string) => {
+    playClick();
     setMobileMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
@@ -35,36 +45,39 @@ export function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 pt-4 pointer-events-none">
-      <div className="max-w-5xl mx-auto flex items-center justify-between">
-        {/* Dynamic Island Capsule */}
-        <div className="w-full glass-panel rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between shadow-[0_8px_32px_rgba(0,0,0,0.8)] backdrop-blur-2xl border border-white/15 pointer-events-auto bg-[#050505]/85">
-          {/* Brand Logo & Live Status */}
+    <header className="fixed top-3 sm:top-5 left-0 right-0 z-40 px-3 sm:px-6 lg:px-8 pointer-events-none transition-all duration-300">
+      <div className="max-w-6xl mx-auto flex items-center justify-between">
+        {/* Dynamic Island Capsule Container */}
+        <div className="w-full glass-panel rounded-full px-3 sm:px-4 py-2 flex items-center justify-between shadow-[0_12px_40px_rgba(0,0,0,0.85)] backdrop-blur-2xl border border-white/20 pointer-events-auto bg-[#050505]/90">
+          {/* Brand Logo */}
           <Link
             href="#hero"
-            className="flex items-center gap-2.5 group focus:outline-none"
+            onClick={playClick}
+            className="flex items-center gap-2.5 group focus:outline-none shrink-0"
           >
-            <div className="w-8 h-8 rounded-full bg-white text-black flex items-center justify-center font-bold text-xs shadow-md group-hover:scale-105 transition-transform">
-              <Terminal className="w-4 h-4" />
+            <div className="size-8.5 rounded-full gradient-ring p-0.5 shadow-md group-hover:scale-105 transition-transform shrink-0">
+              <div className="size-full rounded-full overflow-hidden bg-zinc-900 relative">
+                <Image
+                  src={mahmoudImg}
+                  alt="Mahmoud Salah"
+                  fill
+                  sizes="34px"
+                  className="object-cover object-center"
+                />
+              </div>
             </div>
             <div className="flex flex-col">
-              <div className="flex items-center gap-1.5">
-                <span className="font-bold text-sm tracking-tight text-white group-hover:text-zinc-300 transition-colors">
-                  {profileData.name}
-                </span>
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-                </span>
-              </div>
-              <span className="text-[10px] text-zinc-400 font-mono hidden sm:inline -mt-0.5">
+              <span className="font-extrabold text-sm tracking-tight text-white group-hover:text-emerald-400 transition-colors">
+                Mahmoud Salah
+              </span>
+              <span className="text-[9px] text-zinc-400 font-mono hidden sm:inline -mt-0.5">
                 Frontend Developer
               </span>
             </div>
           </Link>
 
-          {/* Desktop Navigation with Animated Sliding Pill */}
-          <nav className="hidden md:flex items-center gap-1 bg-white/[0.03] p-1 rounded-full border border-white/[0.06]">
+          {/* Desktop Navigation Capsule */}
+          <nav className="hidden md:flex items-center gap-1 bg-white/[0.04] p-1 rounded-full border border-white/[0.08]">
             {navLinks.map((link) => {
               const isActive = activeSection === link.id;
               return (
@@ -88,20 +101,49 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Right Action: Direct Download CV */}
-          <div className="flex items-center gap-2.5">
+          {/* Right Action Cluster: Audio + WhatsApp + Download CV + Contact CTA */}
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <AudioToggle />
+
+            {/* Direct WhatsApp Quick Connect */}
+            <a
+              href="https://wa.me/20150740490"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Chat on WhatsApp (+20 150 740 490)"
+              onClick={playClick}
+              className="size-8 rounded-full bg-emerald-500 hover:bg-emerald-400 text-white flex items-center justify-center transition-all shadow-md active:scale-95 shrink-0"
+            >
+              <Phone className="w-3.5 h-3.5 fill-current" />
+            </a>
+
+            {/* Direct CV Download */}
             <a
               href="/cv.pdf"
               download="Mahmoud_Salah_CV.pdf"
-              className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-black hover:bg-zinc-200 text-xs font-bold transition-all shadow-md active:scale-95 group"
+              onClick={playSuccess}
+              title="Download CV (PDF)"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/15 text-zinc-300 hover:text-white transition-all text-xs font-mono active:scale-95"
             >
-              <Download className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+              <Download className="w-3 h-3 text-white" />
               <span>CV</span>
             </a>
 
+            {/* Get In Touch CTA */}
+            <button
+              onClick={() => handleNavClick("contact")}
+              className="group hidden sm:inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/80 bg-white text-black hover:bg-zinc-200 transition-all duration-300 text-xs font-semibold shrink-0 active:scale-95"
+            >
+              <span>Contact</span>
+              <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
+
             {/* Mobile Menu Toggle Button */}
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={() => {
+                playWhoosh();
+                setMobileMenuOpen(!mobileMenuOpen);
+              }}
               className="md:hidden p-2 rounded-full text-zinc-400 hover:text-white hover:bg-white/[0.06] transition-colors focus:outline-none"
               aria-label="Toggle navigation menu"
             >
@@ -115,41 +157,132 @@ export function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Drawer Navigation */}
+      {/* Luxury Full-Screen Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-            className="md:hidden mt-3 max-w-sm mx-auto glass-panel rounded-3xl p-5 border border-white/15 shadow-2xl bg-[#08080a]/95 backdrop-blur-3xl pointer-events-auto space-y-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-50 md:hidden bg-black/95 backdrop-blur-3xl flex flex-col justify-between p-6 pointer-events-auto overflow-y-auto"
           >
-            <div className="flex flex-col space-y-1">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => handleNavClick(link.id)}
-                  className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
-                    activeSection === link.id
-                      ? "bg-white text-black font-bold"
-                      : "text-zinc-300 hover:bg-white/[0.06] hover:text-white"
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
+            {/* Top Bar inside Mobile Drawer */}
+            <div className="flex items-center justify-between pb-4 border-b border-white/10">
+              <div className="flex items-center gap-2.5">
+                <div className="size-8.5 rounded-full gradient-ring p-0.5 shadow-md shrink-0">
+                  <div className="size-full rounded-full overflow-hidden bg-zinc-900 relative">
+                    <Image
+                      src={mahmoudImg}
+                      alt="Mahmoud Salah"
+                      fill
+                      sizes="34px"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm font-bold text-white">Mahmoud Salah</div>
+                  <div className="text-[10px] text-zinc-400 font-mono">Frontend Developer</div>
+                </div>
+              </div>
+
+              <button
+                onClick={() => {
+                  playWhoosh();
+                  setMobileMenuOpen(false);
+                }}
+                className="p-2.5 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all active:scale-90"
+                aria-label="Close menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
             </div>
 
-            <div className="pt-3 border-t border-white/10 space-y-2">
-              <a
-                href="/cv.pdf"
-                download="Mahmoud_Salah_CV.pdf"
-                className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white text-black font-bold text-xs shadow-md"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download CV (PDF)</span>
-              </a>
+            {/* Main Navigation Links List (Numbered, High-Contrast) */}
+            <div className="py-6 flex flex-col space-y-3">
+              {navLinks.map((link, idx) => {
+                const isActive = activeSection === link.id;
+
+                return (
+                  <motion.button
+                    key={link.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: idx * 0.05 + 0.1 }}
+                    onClick={() => handleNavClick(link.id)}
+                    className={`w-full flex items-center justify-between p-4 rounded-2xl transition-all ${
+                      isActive
+                        ? "bg-white text-black font-bold shadow-lg"
+                        : "text-zinc-300 hover:bg-white/[0.06] hover:text-white"
+                    }`}
+                  >
+                    <span className="text-lg font-bold tracking-tight">{link.label}</span>
+                    <span className={`text-xs font-mono ${isActive ? "text-zinc-600" : "text-zinc-500"}`}>
+                      {link.number}
+                    </span>
+                  </motion.button>
+                );
+              })}
+            </div>
+
+            {/* Action Buttons & Socials Footer */}
+            <div className="space-y-4 pt-4 border-t border-white/10">
+              {/* WhatsApp & CV Buttons */}
+              <div className="grid grid-cols-2 gap-2.5">
+                <a
+                  href="https://wa.me/20150740490"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={playClick}
+                  className="flex items-center justify-center gap-2 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-white font-bold text-xs shadow-lg active:scale-95 transition-all"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>WhatsApp</span>
+                </a>
+
+                <a
+                  href="/cv.pdf"
+                  download="Mahmoud_Salah_CV.pdf"
+                  onClick={playSuccess}
+                  className="flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/[0.08] hover:bg-white/15 border border-white/15 text-white font-mono text-xs active:scale-95 transition-all"
+                >
+                  <Download className="w-4 h-4" />
+                  <span>Download CV</span>
+                </a>
+              </div>
+
+              {/* Social Channels Row */}
+              <div className="flex items-center justify-center gap-4 pt-2">
+                <a
+                  href={profileData.socials.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full bg-white/[0.05] text-zinc-300 hover:text-white hover:bg-white/10 transition-all"
+                >
+                  <GithubIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={profileData.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full bg-white/[0.05] text-zinc-300 hover:text-white hover:bg-white/10 transition-all"
+                >
+                  <LinkedinIcon className="w-4 h-4" />
+                </a>
+                <a
+                  href={profileData.socials.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-2.5 rounded-full bg-white/[0.05] text-zinc-300 hover:text-white hover:bg-white/10 transition-all"
+                >
+                  <TwitterIcon className="w-4 h-4" />
+                </a>
+              </div>
+
+              <div className="text-center text-[10px] font-mono text-zinc-500">
+                Mansoura, Egypt • Available for Hire
+              </div>
             </div>
           </motion.div>
         )}

@@ -64,8 +64,8 @@ export const architectureLayers: ArchitectureLayer[] = [
   {
     level: 6,
     name: "Platform & Infrastructure Engine",
-    subtitle: "Edge CDN, Next.js Server Runtime, Salla & Shopify APIs",
-    components: ["Next.js Server Runtime", "Salla REST / Twilight", "Shopify Storefront API", "Vercel Edge Network"],
+    subtitle: "Edge CDN, Next.js Server Runtime & Cloud Deployments",
+    components: ["Next.js Server Runtime", "Vercel Edge Network", "Headless REST/GraphQL APIs", "Cloudflare CDN"],
     role: "Serves cached static pages instantly from the edge while orchestrating secure server-to-server communications.",
     bestPractices: [
       "Sub-second TTFB through edge distribution and stale-while-revalidate caching",

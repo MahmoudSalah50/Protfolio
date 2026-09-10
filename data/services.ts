@@ -16,18 +16,18 @@ export const servicesData: ServiceItem[] = [
     icon: "LayoutCode",
   },
   {
-    id: "ecommerce-engineering",
-    title: "E-Commerce Development (Salla & Shopify)",
-    tag: "High-Conversion Storefronts",
+    id: "web-apps-api",
+    title: "Full-Stack UI & API Integration",
+    tag: "REST, GraphQL & Edge Runtimes",
     description:
-      "Bespoke storefront engineering on Salla (Twig) and Shopify (Liquid). Optimized for high conversion, instant cart drawers, and frictionless mobile checkout.",
+      "Bridging rich frontend user interfaces with robust backend APIs, headless systems, server-state caching, and edge data fetching for instant response times.",
     deliverables: [
-      "Custom Salla themes with Twig templates & Twilight UI integration",
-      "Custom Shopify themes with Liquid sections & Section Rendering API",
-      "Arabic RTL localization with typography harmony (Cairo, Tajawal)",
-      "Optimistic cart drawers, variant pickers & checkout optimizations",
+      "Robust REST & GraphQL client integration with Axios and unified interceptors",
+      "Server-state synchronization, optimistic mutations, and TanStack Query caching",
+      "Zod schema validation at the network boundary for total runtime safety",
+      "Optimistic UI updates with instant client feedback and background sync",
     ],
-    icon: "ShoppingBag",
+    icon: "Layers",
   },
   {
     id: "ui-engineering",

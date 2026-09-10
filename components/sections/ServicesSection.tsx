@@ -34,10 +34,10 @@ export function ServicesSection() {
         <SectionHeader
           badgeText="What I Deliver"
           badgeVariant="white"
-          title="Frontend & E-Commerce"
+          title="Engineering & Development"
           titleAccent="Services"
           watermark="06"
-          description="Whether developing a new platform from scratch or elevating an existing e-commerce storefront, I deliver clean architecture, fluid interactions, and high-conversion user interfaces."
+          description="From complex React & Next.js web applications to accessible design systems, I deliver clean modular architecture, fluid micro-interactions, and sub-second performance."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
